@@ -91,6 +91,8 @@ pixel = Pixel(size)
 while True:
     time += 1
     keys = pygame.key.get_pressed()
+    for star in stars:
+        star.update(screen)
     pixel.update(screen, keys, size)
     pygame.display.update()
 
