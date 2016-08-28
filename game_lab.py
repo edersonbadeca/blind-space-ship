@@ -80,13 +80,22 @@ pygame.mouse.set_visible(False)
 size = (800, 600)
 time = 0
 stars = []
+
 for star in xrange(100):
     stars.append(Star(size))
 
-screen = pygame.display.set_mode(size, 32)
+screen = pygame.display.set_mode(size, 0, 32)
 pixel = Pixel(size)
 
 
 while True:
     time += 1
     keys = pygame.key.get_pressed()
+    pixel.update(screen, keys, size)
+    pygame.display.update()
+
+
+    #updates the screen
+    screen.fill([0,0,0])
+
+
