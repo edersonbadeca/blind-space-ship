@@ -17,7 +17,9 @@ UP='up'
 LEFT='left'
 RIGHT='right'
 DOWN='down'
+SPACE='space'
 
+boom_s = pygame.mixer.Sound("boom.wav")
 sprite=pygame.image.load('ship.gif')
 spritex=200
 spritey=130
@@ -46,11 +48,14 @@ while True:
 
     DISPLAYSURF.blit(sprite,(spritex,spritey))
 
+    keys = pygame.key.get_pressed()
     for event in pygame.event.get():
         if event.type==QUIT:
             pygame.quit()
             sys.exit()
 
+        if keys[K_SPACE]:
+            boom_s.play()
         if event.type == KEYDOWN:
             direction = event.key
         if event.type == KEYUP:
